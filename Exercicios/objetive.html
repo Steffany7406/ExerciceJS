@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+    <!-- Create a form element -->
+<form id="myForm">
+  <!-- Add input fields for user information -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  
+  <label for="phone">Phone:</label>
+  <input type="tel" id="phone" name="phone"><br><br>
+  
+  <label for="message">Message:</label>
+  <textarea id="message" name="message"></textarea><br><br>
+  
+  <!-- Add a submit button -->
+  <input type="submit" value="Submit">
+</form>
+
+<!-- Create a div to display the input information -->
+<div id="output"></div>
+
+<!-- Add JavaScript to handle form submission and display input information -->
+<script>
+  const form = document.getElementById('myForm');
+  const outputDiv = document.getElementById('output');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    // Get the input values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+
+    // Create a string to display the input information
+    const outputString = `
+      <h2>User Information</h2>
+      <p>Name: ${name}</p>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phone}</p>
+      <p>Message: ${message}</p>
+    `;
+
+    // Display the input information in the output div
+    outputDiv.innerHTML = outputString;
+  });
+</script>
+    
+
+  </body>
+</html>
